@@ -3,7 +3,7 @@ using chernikov;
 namespace TestAutosalon
 {
     [TestClass]
-    public class UnitTest1
+    public class TWarehouse
     {
         [TestMethod]
         public void TestMethod1()
