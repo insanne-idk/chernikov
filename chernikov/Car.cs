@@ -1,6 +1,4 @@
-﻿using System.Reflection.PortableExecutable;
-
-namespace chernikov
+﻿namespace chernikov
 {
     public class Car
     {

@@ -10,6 +10,7 @@ namespace TestAutosalon
         {
             // Arrange
             Warehouse warehouse = new Warehouse();
+            /// REVIEW. a.boikov. 2024/10/08. Добавить проверку, что исходно никаких автомобилей на складе нет
             Car car = new Car(1, "Toyota", "Corolla", 2015, 15000, new Characteristics { Horsepower = 150, Transmission = "Автоматическая", Mileage = 50000, Color = "Серебристый" });
 
             // Act
