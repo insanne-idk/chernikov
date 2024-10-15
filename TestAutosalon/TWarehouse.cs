@@ -10,7 +10,8 @@ namespace TestAutosalon
         {
             // Arrange
             Warehouse warehouse = new Warehouse();
-            /// REVIEW. a.boikov. 2024/10/08. ƒобавить проверку, что исходно никаких автомобилей на складе нет
+            Assert.AreEqual(0, warehouse.GetAvailableCars().Count);
+
             Car car = new Car(1, "Toyota", "Corolla", 2015, 15000, new Characteristics { Horsepower = 150, Transmission = "јвтоматическа€", Mileage = 50000, Color = "—еребристый" });
 
             // Act
@@ -19,5 +20,33 @@ namespace TestAutosalon
             // Assert
             Assert.AreEqual(1, warehouse.GetAvailableCars().Count);
         }
+        [TestMethod]
+        public void ReserveCar_WhenCarIsAvailable_ReturnsTrue()
+        {
+            // Arrange
+            var availability = new Availability(2); // 2 автомобил€ в наличии
+            var carId = 1;
+
+            // Act
+            var isAvailable = availability.ReserveCar(carId);
+
+            // Assert
+            Assert.IsTrue(isAvailable);
+
+        }
+        [TestMethod]
+        public void ReserveCar_WhenCarIsNotAvailable_ReturnsFalse()
+        {
+            // Arrange
+            var availability = new Availability(0); // 0 автомобилей в наличии
+            var carId = 1;
+
+            // Act
+            var isAvailable = availability.ReserveCar(carId);
+
+            // Assert
+            Assert.IsFalse(isAvailable);
+        }
+
     }
 }
