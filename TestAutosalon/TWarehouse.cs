@@ -39,18 +39,18 @@ namespace TestAutosalon
         {
             /// REVIEW. a.boikov. 2014/10/26. Нужно вносить конкретные марки на склад.
             /// Запрашивать наличие конкретной марки, которой нет в наличии
-            // Arrange
-            Warehouse warehouse = new Warehouse();
-            Availability carAvailability = new Availability(2);
-            
+            {
+                // Arrange
+                Warehouse warehouse = new Warehouse();
+                // Не добавляем автомобиль с ID 2 на склад, чтобы он отсутствовал
+                var carId = 2; // ID автомобиля, который отсутствует на складе
 
-            var carId = 2; // ID автомобиля, который отсутствует на складе
+                // Act
+                bool result = warehouse.GetAvailableCars(carId); // Запрашиваем наличие конкретной марки
 
-            // Act
-            carAvailability.ReserveCar(2); // Запрашиваем наличие конкретной марки
-
-            // Assert
-            Assert.IsFalse(false); // Запрашиваем наличие конкретной марки, которой нет в наличии
+                // Assert
+                Assert.IsFalse(result); // Проверяем, что резервирование вернуло false
+            }
 
             // Assert
 
