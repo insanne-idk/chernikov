@@ -7,7 +7,7 @@ namespace TestAutosalon
     {
         [TestMethod]
         /// REVIEW. a.boikov. 2024/10/26. Метод назвать так, чтобы понять, что он тестирует с префиксом Test
-        public void TestMethod1()
+        public void TestAddCar_WhenCarIsAdded_ThenAvailableCarsCountIncrements()
         {
             // Arrange
             Warehouse warehouse = new Warehouse();
