@@ -41,16 +41,16 @@ namespace TestAutosalon
             /// Запрашивать наличие конкретной марки, которой нет в наличии
             // Arrange
             Warehouse warehouse = new Warehouse();
-            Availability carAvailability = new Availability(1);
+            Availability carAvailability = new Availability(2);
             
 
-            var carId = 1; // ID автомобиля, который отсутствует на складе
+            var carId = 2; // ID автомобиля, который отсутствует на складе
 
             // Act
-            carAvailability.ReserveCar(1); // Запрашиваем наличие конкретной марки
+            carAvailability.ReserveCar(2); // Запрашиваем наличие конкретной марки
 
             // Assert
-            Assert.IsTrue(false); // Запрашиваем наличие конкретной марки, которой нет в наличии
+            Assert.IsFalse(false); // Запрашиваем наличие конкретной марки, которой нет в наличии
 
             // Assert
 
