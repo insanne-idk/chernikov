@@ -6,7 +6,6 @@ namespace TestAutosalon
     public class TWarehouse
     {
         [TestMethod]
-        /// REVIEW. a.boikov. 2024/10/26. Метод назвать так, чтобы понять, что он тестирует с префиксом Test
         public void TestAddCar_WhenCarIsAdded_ThenAvailableCarsCountIncrements()
         {
             // Arrange
@@ -25,12 +24,12 @@ namespace TestAutosalon
         public void ReserveCar_WhenCarIsAvailable_ReturnsTrue()
         {
             Warehouse warehouse = new Warehouse();
-            Availability carAvailability = new Availability(6);
+            Availability carAvailability = new Availability(1);
             Car car = new Car(1, "Toyota", "Corolla", 2015, 15000, new Characteristics { Horsepower = 150, Transmission = "Автоматическая", Mileage = 50000, Color = "Серебристый" });
             warehouse.AddCar(car);// Добавляем конкретную марку на склад
 
             // Act
-            carAvailability.ReserveCar(6); // Запрашиваем наличие конкретной марки
+            carAvailability.ReserveCar(1); // Запрашиваем наличие конкретной марки
 
             // Assert
             Assert.IsTrue(true);
