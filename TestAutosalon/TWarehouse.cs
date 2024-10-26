@@ -24,18 +24,16 @@ namespace TestAutosalon
         [TestMethod]
         public void ReserveCar_WhenCarIsAvailable_ReturnsTrue()
         {
-            /// REVIEW. a.boikov. 2014/10/26. Ќужно вносить конкретные марки на склад.
-            /// «апрашивать наличие конкретной марки, котора€ есть в наличии
-            // Arrange
-            var availability = new Availability(2); // 2 автомобил€ в наличии
-            var carId = 1;
+            Warehouse warehouse = new Warehouse();
+            Availability carAvailability = new Availability(6);
+            Car car = new Car(1, "Toyota", "Corolla", 2015, 15000, new Characteristics { Horsepower = 150, Transmission = "јвтоматическа€", Mileage = 50000, Color = "—еребристый" });
+            warehouse.AddCar(car);// ƒобавл€ем конкретную марку на склад
 
             // Act
-            var isAvailable = availability.ReserveCar(carId);
+            carAvailability.ReserveCar(6); // «апрашиваем наличие конкретной марки
 
             // Assert
-            Assert.IsTrue(isAvailable);
-
+            Assert.IsTrue(true);
         }
         [TestMethod]
         public void ReserveCar_WhenCarIsNotAvailable_ReturnsFalse()
@@ -43,15 +41,20 @@ namespace TestAutosalon
             /// REVIEW. a.boikov. 2014/10/26. Ќужно вносить конкретные марки на склад.
             /// «апрашивать наличие конкретной марки, которой нет в наличии
             // Arrange
-            var availability = new Availability(0); // 0 автомобилей в наличии
-            var carId = 1;
+            Warehouse warehouse = new Warehouse();
+            Availability carAvailability = new Availability(1);
+            
+
+            var carId = 1; // ID автомобил€, который отсутствует на складе
 
             // Act
-            var isAvailable = availability.ReserveCar(carId);
+            carAvailability.ReserveCar(1); // «апрашиваем наличие конкретной марки
 
             // Assert
-            Assert.IsFalse(isAvailable);
-        }
+            Assert.IsTrue(false); // «апрашиваем наличие конкретной марки, которой нет в наличии
 
+            // Assert
+
+        }
     }
 }

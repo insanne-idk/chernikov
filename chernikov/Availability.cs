@@ -5,8 +5,6 @@
 
     public class Availability
     {
-
-
         public Car Car { get; set; }
         public int Quantity { get; set; }
 
