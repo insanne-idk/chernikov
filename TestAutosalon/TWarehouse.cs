@@ -6,6 +6,7 @@ namespace TestAutosalon
     public class TWarehouse
     {
         [TestMethod]
+        /// REVIEW. a.boikov. 2024/10/26. Метод назвать так, чтобы понять, что он тестирует с префиксом Test
         public void TestMethod1()
         {
             // Arrange
@@ -23,6 +24,8 @@ namespace TestAutosalon
         [TestMethod]
         public void ReserveCar_WhenCarIsAvailable_ReturnsTrue()
         {
+            /// REVIEW. a.boikov. 2014/10/26. Нужно вносить конкретные марки на склад.
+            /// Запрашивать наличие конкретной марки, которая есть в наличии
             // Arrange
             var availability = new Availability(2); // 2 автомобиля в наличии
             var carId = 1;
@@ -37,6 +40,8 @@ namespace TestAutosalon
         [TestMethod]
         public void ReserveCar_WhenCarIsNotAvailable_ReturnsFalse()
         {
+            /// REVIEW. a.boikov. 2014/10/26. Нужно вносить конкретные марки на склад.
+            /// Запрашивать наличие конкретной марки, которой нет в наличии
             // Arrange
             var availability = new Availability(0); // 0 автомобилей в наличии
             var carId = 1;
