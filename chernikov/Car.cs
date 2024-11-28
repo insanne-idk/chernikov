@@ -8,6 +8,7 @@
         public int Year { get; set; }
         public double Price { get; set; }
         public Characteristics Characteristics { get; set; }
+        public bool IsReserved { get; set; } = false;
 
         public Car(int id, string make, string model, int year, double price, Characteristics characteristics)
         {
@@ -20,3 +21,4 @@
         }
     }
 }
+    

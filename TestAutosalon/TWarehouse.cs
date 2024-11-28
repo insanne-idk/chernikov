@@ -12,7 +12,7 @@ namespace TestAutosalon
             Warehouse warehouse = new Warehouse();
             Assert.AreEqual(0, warehouse.GetAvailableCars().Count);
 
-            Car car = new Car(1, "Toyota", "Corolla", 2015, 15000, new Characteristics { Horsepower = 150, Transmission = "Автоматическая", Mileage = 50000, Color = "Серебристый" });
+            Car car = new Car(1, "Toyota", "Corolla", 2015, 15000.0, new Characteristics { Horsepower = 150, Transmission = "Автоматическая", Mileage = 50000, Color = "Серебристый" });
 
             // Act
             warehouse.AddCar(car);
@@ -37,23 +37,18 @@ namespace TestAutosalon
         [TestMethod]
         public void ReserveCar_WhenCarIsNotAvailable_ReturnsFalse()
         {
-            /// REVIEW. a.boikov. 2014/10/26. Нужно вносить конкретные марки на склад.
-            /// Запрашивать наличие конкретной марки, которой нет в наличии
-            {
-                // Arrange
-                Warehouse warehouse = new Warehouse();
-                // Не добавляем автомобиль с ID 2 на склад, чтобы он отсутствовал
-                var carId = 2; // ID автомобиля, который отсутствует на складе
+            // Подготовка
+            Warehouse warehouse = new Warehouse();
+            int carId = 1; // ID автомобиля, которого нет на складе
 
-                // Act
-                bool result = warehouse.GetAvailableCars(carId); // Запрашиваем наличие конкретной марки
+            // Действие
+            bool result = warehouse.ReserveCar(carId);
 
-                // Assert
-                Assert.IsFalse(result); // Проверяем, что резервирование вернуло false
-            }
-
-            // Assert
-
+            // Утверждение
+            Assert.IsFalse(result, $"Резервирование должно было завершиться неудачей для несуществующего ID автомобиля {carId}");
         }
+
+        // Assert
+
     }
-}
+    }
